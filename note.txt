@@ -1,0 +1,4 @@
+https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
+d74967f34cdc3dfde0619e99c2cdac8c
+dfbd7f3564402cfd9796bd7d493e589b
