@@ -1,6 +1,5 @@
+/* eslint-disable react/prop-types */
 import moment from "moment";
-import React from "react";
-import { WiDayHail } from "react-icons/wi";
 
 const Card = ({ data }) => {
     console.log(data);
@@ -15,16 +14,19 @@ const Card = ({ data }) => {
                     {data.name}, {data.sys.country}
                 </h3>
                 <h1 className="">
-                    <WiDayHail />30°C
+                    <img src={`https://openweathermap.org/img/w/${data.weather[0].icon}.png`}/>{(data.main.temp - 273.15).toFixed(2)}°C
                 </h1>
                 <p className=" fw-semibold">
-                    {" "}Feels like 32°C. Clear sky. Light air{" "}
+                    Feels like {data.main.feels_like}°C.{data.weather[0].description}.
                 </p>
-                <p> 1.5m/s ENE</p>
-                <p>Humidity:58%</p>
-                <p>Dew point:21°C</p>
+                <p>Humidity : {data.main.humidity}%</p>
+                <p>Visibility : {data.visibility / 1000}km</p>
             </div>
         );
+    }else{
+        return (
+            <h3 className="text-center">Loading...</h3>
+        )
     }
 };
 
